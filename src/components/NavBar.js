@@ -8,7 +8,7 @@ return (
 	<nav>
 <ul>
 <li>
-<img src="../logo.png" alt="logo" className="logo"/>
+<img src="../nutripet_logo.png" alt="logo" className="logo"/>
 </li>
 <li><Link to='/'>Inicio</Link></li>
 <li><Link to='/categoria/alimentos'>Alimentos</Link></li>
