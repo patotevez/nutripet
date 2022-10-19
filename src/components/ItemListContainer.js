@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { useParams } from "react-router-dom";
 import getItems, { getItemsByCategory } from "../Service/mockAPI";
-import { LineWobble } from '@uiball/loaders'
 
 function ItemListContainer() {
 const [data, setData] = useState([]);
@@ -27,15 +26,7 @@ useEffect(() => {
     }, [cat]);
 
 return (
-    <div>
-            {isLoading ? (
-        <LineWobble 
-        size={1800}
-        lineWeight={5}
-        speed={1.75} 
-        color="grey" 
-        />
-    ) : (
+
     <div className="mainContainer">
         {data.map((item) => {
         return (
@@ -53,7 +44,6 @@ return (
         })}
     </div>
     )};
-    </div>
-);
-}
+
+
 export default ItemListContainer;

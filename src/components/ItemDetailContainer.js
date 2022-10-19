@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { getSingleItem } from "../Service/mockAPI";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail"
-import { LineWobble } from '@uiball/loaders'
 
 function ItemDetailContainer() {
 const [data, setData] = useState({});
@@ -30,12 +29,7 @@ if (isLoading) {
             <p>{error}</p>
         </div>
         ) : (
-        <h3>        <LineWobble 
-        size={1800}
-        lineWeight={5}
-        speed={1.75} 
-        color="grey" 
-        /></h3>
+        <h3></h3>
         )}
     </>
     );

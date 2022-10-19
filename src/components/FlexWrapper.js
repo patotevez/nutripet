@@ -1,4 +1,5 @@
 import "./FlexWrapper.css";
+import React from 'react';
 
 function FlexWrapper(props) {
 
