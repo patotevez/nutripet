@@ -1,49 +1,40 @@
-import React, { useState, useEffect } from "react";
-import Card from "./Card";
-import { useParams } from "react-router-dom";
-import getItems, { getItemsByCategory } from "../Service/mockAPI";
+import React from "react";
+import {collection, getDocs, getFirestore} from 'firebase/firestore';
+import {useEffect,useState} from 'react';
 
-function ItemListContainer() {
-const [data, setData] = useState([]);
-const [isLoading, setIsLoading] = useState(true);
+export const Cartas = ( {id, title, img , detail, price , stock, category } ) => {
+    return (
+        <div>
+            <div>{title}</div>
+            <img src={img} />
+            <div>{detail}</div>
+            <div>{price}</div>
+        </div>
+    )
+}
 
-const { cat } = useParams();
+const ItemListContainer = () => {
 
-useEffect(() => {
-    setIsLoading(true);
-    if (cat === undefined) {
-    getItems()
-        .then((respuestaDatos) => setData(respuestaDatos))
-        .finally(() => setIsLoading(false));
-    } else {
-        getItemsByCategory(cat)
-        .then((respuestaDatos) => setData(respuestaDatos))
-        .finally(() => setIsLoading(false));
+    const [products, setProducts] = useState ([])
+    const [loading, setLoading] = useState (true)
+    useEffect(()=> {
+        getProducts()
+    }, [])
+
+    const getProducts = () => {
+        const db = getFirestore()
+        const productsCollection = collection (db, 'products')
+        getDocs(productsCollection).then( res => { 
+            const productsData = res.docs.map( d => ({id: d.id,...d.data()}) )
+            console.log(productsData);
+            setProducts(productsData);
+        })
     }
-    return () => {
-        console.log("Componente Item List desmontado");
-    };
-    }, [cat]);
 
-return (
+    return (
+        <div>{products.map( p => <Cartas key={p.id} {...p} />)}</div>
+    )
 
-    <div className="mainContainer">
-        {data.map((item) => {
-        return (
-            <Card
-            key={item.id}
-            offer={item.offer}
-            id={item.id}
-            price={item.price}
-            title={item.title}
-            img={item.img}
-            detail={item.detail}
-            stock={item.stock}
-            />
-        );
-        })}
-    </div>
-    )};
+}
 
-
-export default ItemListContainer;
+export default ItemListContainer
