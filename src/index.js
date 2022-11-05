@@ -1,37 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import './firebase/config';
 
-import App from "./App";
-
-/* Firebase Inicio */
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDtIO5bnL5yHEQ51nL6a8AaCLwDYwOWDGY",
-  authDomain: "nutripet-cd830.firebaseapp.com",
-  projectId: "nutripet-cd830",
-  storageBucket: "nutripet-cd830.appspot.com",
-  messagingSenderId: "420447346159",
-  appId: "1:420447346159:web:87ed22f686f5d2a6e72a1a",
-  measurementId: "G-Q51KB7R0VM"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-/* Firebase Fin */
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
