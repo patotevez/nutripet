@@ -1,5 +1,5 @@
 .film {
-    display: block;
+    display: inline-flex;
     width: 300px;
 }
 .film img {

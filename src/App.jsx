@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './components/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar'; //no es necesario escribir el index.jsx, se ejecuta automáticamente.
+import NavBar from './components/NavBar'; 
 import CartProvider from './context/CartContext';
 
 function App() {
