@@ -8,6 +8,7 @@ export const NavBar = () => {
         <div className="navbar bg-base-100">
             <div className="flex-1">
                 <ul>
+                    <li className='logo'><img src='../nutripet_logo.png' alt='logo_nutripet' ></img></li>
                     <li>
                         <NavLink className="nav__link btn btn-ghost normal-case text-xl mr-5" to='/'>NutriPet</NavLink>
                     </li>
